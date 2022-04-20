@@ -21,6 +21,11 @@ public class Program
                 case 1:
                     address.Display();
                     break;
+                case 2:
+                    Console.WriteLine("enter the information : ");
+                    string name = Console.ReadLine();
+                    address.EditContact(name);
+                    break;
                 case 0:
                     end = false;
                     Console.WriteLine("choose the correct option");
