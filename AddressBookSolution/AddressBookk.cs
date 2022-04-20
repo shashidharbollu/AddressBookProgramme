@@ -27,7 +27,7 @@ namespace AddressBookSolution
                 FirstName = Console.ReadLine(),
                 LastName = Console.ReadLine(),
                 Address = Console.ReadLine(),
-                City    = Console.ReadLine(),
+                City = Console.ReadLine(),
                 State = Console.ReadLine(),
                 Email = Console.ReadLine(),
                 Zip = Convert.ToInt32(Console.ReadLine()),
@@ -45,7 +45,7 @@ namespace AddressBookSolution
         {
             foreach (var contact in addressbook)
             {
-                Console.WriteLine("first name: " + contact.FirstName+ "\nlastname: "+ contact.LastName + "\naddress: "+ contact.Address +"\nstate"+contact.State+"\nemail:"+contact.Email+"\nzip"+contact.Zip+"\nmobile:"+contact.Phone);
+                Console.WriteLine("first name: " + contact.FirstName + "\nlastname: " + contact.LastName + "\naddress: " + contact.Address + "\nstate" + contact.State + "\nemail:" + contact.Email + "\nzip" + contact.Zip + "\nmobile:" + contact.Phone);
             }
         }
         public void EditContact(string name)
@@ -53,8 +53,8 @@ namespace AddressBookSolution
             foreach (var contact in addressbook)
             {
                 if (contact.FirstName.Equals(name))
-                { 
-                Console.WriteLine("Enter the required option : ");
+                {
+                    Console.WriteLine("Enter the required option : ");
                     int optionn = Convert.ToInt32(Console.ReadLine());
                     switch (optionn)
                     {
@@ -62,7 +62,7 @@ namespace AddressBookSolution
                             Console.WriteLine("enter the first name you want to edit");
                             contact.FirstName = Console.ReadLine();
                             break;
-                         case 2:
+                        case 2:
                             Console.WriteLine("enter the last name you want to edit : ");
                             contact.LastName = Console.ReadLine();
                             break;
@@ -89,19 +89,35 @@ namespace AddressBookSolution
                         case 8:
                             Console.WriteLine("enter the phone you want to edit :");
                             contact.Phone = Convert.ToInt64(Console.ReadLine());
-                            break ;
+                            break;
                         default:
                             Console.WriteLine("Choose the right option : ");
-                               break;
+                            break;
 
 
                     }
-                
+
                 }
                 Display();
             }
         }
+        public void DeletingContactInAddressBookk(string name)
+        { 
+        Contact d = new Contact();
+            foreach (var contact in addressbook)
+            {
+                if (contact.FirstName.Equals(name))
+                { 
+                d = contact;
+                }
+            }
+            addressbook.Remove(d);
+            Display();
+            
+        }
     }
+        
+    
 }
 
         

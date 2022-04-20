@@ -8,7 +8,7 @@ public class Program
 
         Console.WriteLine("welcome to my address book");
         bool end = true;
-        Console.WriteLine("select any option\n  1. display\n end of the programme");
+        Console.WriteLine("select any option\n  1. display\n 2.editContact\n 3.deletecontact\n end of the programme");
         Contact contact = new Contact();
         AddressBookk address = new AddressBookk();
 
@@ -26,6 +26,12 @@ public class Program
                     string name = Console.ReadLine();
                     address.EditContact(name);
                     break;
+                case 3:
+                    Console.WriteLine("ENTER THE INF TO BE DELETED");
+                    string d1 = Console.ReadLine();
+                    address.DeletingContactInAddressBookk(d1);
+                    break;
+                        
                 case 0:
                     end = false;
                     Console.WriteLine("choose the correct option");
