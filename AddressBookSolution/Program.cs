@@ -1,19 +1,33 @@
 ﻿using System;
 using AddressBookSolution;
-class Program
+public class Program
 {
     public static void Main(string[] args)
 
     {
-        Contact contact = new Contact();
-        contact.LastName = Console.ReadLine();
-        contact.Address = Console.ReadLine();
-        contact.City = Console.ReadLine();
-        contact.State = Console.ReadLine();
-        contact.Email = Console.ReadLine();
-        contact.Zip = Convert.ToInt32(Console.ReadLine());
-        contact.Phone = Convert.ToInt64(Console.ReadLine());
-        Console.WriteLine(contact.FirstName + " "+contact.LastName+ " "+ contact.Address+ " "+ contact.City + " "+ contact.State + " "+ contact.Email+" "+ contact.Zip + " "+contact.Phone);
 
+        Console.WriteLine("welcome to my address book");
+        bool end = true;
+        Console.WriteLine("select any option\n  1. display\n end of the programme");
+        Contact contact = new Contact();
+        AddressBookk address = new AddressBookk();
+
+        while (end)
+        {
+            Console.WriteLine("choose any option to execute the programme : ");
+            int option = Convert.ToInt32(Console.ReadLine());
+            switch (option)
+            {
+                case 1:
+                    address.Display();
+                    break;
+                case 0:
+                    end = false;
+                    Console.WriteLine("choose the correct option");
+                    break;
+
+            }
+
+        }
     }
 }
