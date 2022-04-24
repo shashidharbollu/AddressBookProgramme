@@ -9,7 +9,7 @@ public class Program
         Console.WriteLine("welcome to my address book");
         bool end = true;
         Console.WriteLine("select any option\n  1. display\n 2.editContact\n 3.deletecontact\n 4.addmultiplecontacts end of the programme");
-        Contact contact = new Contact();
+       
         AddressBookk address = new AddressBookk();
 
         while (end)

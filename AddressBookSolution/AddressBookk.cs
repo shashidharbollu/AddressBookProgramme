@@ -9,10 +9,15 @@ namespace AddressBookSolution
     public class AddressBookk
     {
         List<Contact> addressbook = new List<Contact>();
+        Dictionary<string, List<Contact>> dictName = new Dictionary<string, List<Contact>>();
         Contact contact = new Contact();
+
+
         public AddressBookk()
         {
+            Console.WriteLine("enter the details 1. firstname:  2.Lastname: 3.address: 4.city: 5.state: 6.email: 7.zip:  8.phone:");
             Contact address1 = new Contact()
+
             {
                 FirstName = Console.ReadLine(),
                 LastName = Console.ReadLine(),
@@ -23,6 +28,7 @@ namespace AddressBookSolution
                 Zip = Convert.ToInt32(Console.ReadLine()),
                 Phone = Convert.ToInt64(Console.ReadLine()),
             };
+            Console.WriteLine("enter the details 1. firstname:  2.Lastname: 3.address: 4.city: 5.state: 6.email: 7.zip:  8.phone:");
             Contact address2 = new Contact()
             {
                 FirstName = Console.ReadLine(),
@@ -39,8 +45,6 @@ namespace AddressBookSolution
         }
         public void addContact()
         {
-
-
             contact.FirstName = Console.ReadLine();
             contact.LastName = Console.ReadLine();
             contact.Address = Console.ReadLine();
@@ -49,7 +53,7 @@ namespace AddressBookSolution
             contact.Email = Console.ReadLine();
             contact.Zip = Convert.ToInt32(Console.ReadLine());
             contact.Phone = Convert.ToInt64(Console.ReadLine());
-            addressbook.Add(contact);           
+            addressbook.Add(contact);
         }
         public void AddContactToAddressBook(Contact contact)
         {
@@ -69,7 +73,7 @@ namespace AddressBookSolution
             {
                 if (contact.FirstName.Equals(name))
                 {
-                    Console.WriteLine("Enter the required option : ");
+                    Console.WriteLine("Enter the required option : 1.firstname:\n 2.last namr:\n 3.address\n 4.city\n 5.state\n 6.email\n 7.zip\n 8.phone\n");
                     int optionn = Convert.ToInt32(Console.ReadLine());
                     switch (optionn)
                     {
@@ -117,18 +121,18 @@ namespace AddressBookSolution
             }
         }
         public void DeletingContactInAddressBookk(string name)
-        { 
-        Contact d = new Contact();
+        {
+            Contact d = new Contact();
             foreach (var contact in addressbook)
             {
                 if (contact.FirstName.Equals(name))
-                { 
-                d = contact;
+                {
+                    d = contact;
                 }
             }
             addressbook.Remove(d);
             Display();
-            
+
         }
         public void addAddressBookk()
         {
@@ -143,11 +147,36 @@ namespace AddressBookSolution
             Display();
 
         }
-        
+        public  bool NameExist(string name)
+        {
+            foreach (var data in dictName.Keys)
+            {
+                if (data.Equals(name))
+                { 
+                return true;
+                }
+            }
+            return false;
+        }
+        public void AddDictionary(string name)
+        {
+            if (dictName == null)
+            {
+                dictName.Add(name, addressbook);
+                return;
+            }
+            if (NameExist(name) == false)
+            {
+                dictName.Add(name, addressbook);
+            }
+            Display();
+        }
     }
-        
-    
 }
+
+
+    
+
 
         
 
