@@ -9,6 +9,7 @@ namespace AddressBookSolution
     public class AddressBookk
     {
         List<Contact> addressbook = new List<Contact>();
+        Contact contact = new Contact();
         public AddressBookk()
         {
             Contact address1 = new Contact()
@@ -35,6 +36,20 @@ namespace AddressBookSolution
             };
             addressbook.Add(address1);
             addressbook.Add(address2);
+        }
+        public void addContact()
+        {
+
+
+            contact.FirstName = Console.ReadLine();
+            contact.LastName = Console.ReadLine();
+            contact.Address = Console.ReadLine();
+            contact.City = Console.ReadLine();
+            contact.State = Console.ReadLine();
+            contact.Email = Console.ReadLine();
+            contact.Zip = Convert.ToInt32(Console.ReadLine());
+            contact.Phone = Convert.ToInt64(Console.ReadLine());
+            addressbook.Add(contact);           
         }
         public void AddContactToAddressBook(Contact contact)
         {
@@ -115,6 +130,20 @@ namespace AddressBookSolution
             Display();
             
         }
+        public void addAddressBookk()
+        {
+            Console.WriteLine("enter no of contacts that you want to add:");
+            int num = Convert.ToInt32(Console.ReadLine());
+            while (num > 0)
+            {
+                addContact();
+                num--;
+
+            }
+            Display();
+
+        }
+        
     }
         
     
